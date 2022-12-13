@@ -41,6 +41,8 @@ func main() {
 	nbst.right = &node{data: 20}
 	nbst.left.left = &node{data: 15}
 
+	fmt.Println("nbst ", validBST(&nbst, nil, nil))
+
 }
 
 type node struct {
