@@ -11,7 +11,7 @@ func main() {
 	bst1 := bst.BST{}
 
 	bst1.AddMultipleValues()
-	bst1.PrintValuesLRR()
+	bst1.Inorder()
 
 	var value int
 	fmt.Print("Enter value to remove from BST: ")
@@ -19,7 +19,7 @@ func main() {
 
 	removeValue(&bst1, value)
 	fmt.Println("Values after removed")
-	bst1.PrintValuesLRR()
+	bst1.Inorder()
 
 }
 

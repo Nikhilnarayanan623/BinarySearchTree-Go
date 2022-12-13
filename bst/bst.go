@@ -54,52 +54,79 @@ func (t *BST) AddValue(data int) {
 	}
 }
 
-// print all values in the binary search tree in ascending order wa
-func (t *BST) PrintValuesLRR() {
+// inorder
+// left -> root -> right
+func (t *BST) Inorder() {
 	if t.Root == nil {
 		fmt.Println("There is no values in the BST")
 		return
 	}
 
-	fmt.Println("Values in the BST ascending order")
-	printValuesLRRHelper(t.Root)
+	fmt.Println("\nInorder")
+	inorderHelper(t.Root)
 	fmt.Println()
 }
 
-func printValuesLRRHelper(node *Node) {
+func inorderHelper(node *Node) {
 
 	if node == nil {
 		return
 	}
 
-	printValuesLRRHelper(node.Left)
+	inorderHelper(node.Left)
 
 	fmt.Print((*node).Data, " ")
 
-	printValuesLRRHelper(node.Right)
+	inorderHelper(node.Right)
 }
 
-// print all values in the binary search tree in descending order wa
-func (t *BST) PrintValuesRRl() {
+// pre-oder printing
+// root -> left -> right
+func (t *BST) PreOrder() {
 	if t.Root == nil {
 		fmt.Println("There is no values in the BST")
 		return
 	}
 
-	fmt.Println("Values in the BST descending order")
-	printValuesRRLHelper(t.Root)
+	fmt.Println("\nPre-order")
+	preOrderHelper(t.Root)
 	fmt.Println()
 }
 
-func printValuesRRLHelper(node *Node) {
+func preOrderHelper(node *Node) {
 
 	if node == nil {
 		return
 	}
 
-	printValuesRRLHelper(node.Right)
+	fmt.Print((*node).Data, " ")
+	preOrderHelper(node.Left)
+
+	preOrderHelper(node.Right)
+}
+
+//post order
+// left -> root -> right
+
+func (t *BST) PostOder() {
+	if t.Root == nil {
+		fmt.Println("There is no values in the BST")
+		return
+	}
+	fmt.Println("\nPost-order")
+	postOderHelper(t.Root)
+	fmt.Println()
+}
+
+func postOderHelper(node *Node) {
+
+	if node == nil {
+		return
+	}
+
+	postOderHelper(node.Left)
+
+	postOderHelper(node.Right)
 
 	fmt.Print((*node).Data, " ")
-
-	printValuesRRLHelper(node.Left)
 }
